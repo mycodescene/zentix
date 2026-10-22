@@ -31,6 +31,7 @@
     html.setAttribute('lang', l);
     html.setAttribute('dir', LANGS[l].dir);
     if (dict) {
+      try { window.ZENTIX_I18N = dict; } catch (e) {}
       document.querySelectorAll('[data-i18n]').forEach(function (el) {
         var k = el.getAttribute('data-i18n');
         if (dict[k] !== undefined) el.innerHTML = dict[k];
