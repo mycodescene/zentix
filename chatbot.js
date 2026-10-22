@@ -175,8 +175,32 @@
     }
   }
 
+  /* i18n lookup for dynamically-built UI (lead form). Falls back to English. */
+  var EN_LEAD = {
+    z_lead_title: "Quick quote request", z_lead_name: "Your name", z_lead_email: "Email",
+    z_lead_msg_ph: "What is the pain? One or two lines is enough.", z_lead_send: "Send \u2014 get my fixed quote",
+    z_lead_err_name: "Please add your name.", z_lead_err_email: "That email does not look right.",
+    z_lead_err_type: "Pick what you need above.", z_lead_err_msg: "One line about the pain helps us quote accurately.",
+    z_lead_done: "Done \u2014 your details are filled in the <strong>form below</strong>. Hit <strong>Send</strong> and a founder replies personally, usually within a day.",
+    z_lead_goto: "Taking you to our <strong>contact form</strong> with your details ready\u2026"
+  };
+  function t(key) {
+    try {
+      var d = window.ZENTIX_I18N;
+      if (d && d[key] !== undefined) return d[key];
+    } catch (e) {}
+    return EN_LEAD[key] || key;
+  }
+
   /* ---------------- in-chat lead form ---------------- */
-  var LEAD_TYPES = ["Website", "Online store", "Mobile app", "AI automation", "Something else"];
+  /* value = English (matches contact-form options + founder-readable); label = translated */
+  var LEAD_TYPES = [
+    { value: "Website", key: "z_lt_website" },
+    { value: "Online store", key: "z_lt_store" },
+    { value: "Mobile app", key: "z_lt_app" },
+    { value: "AI automation", key: "z_lt_ai" },
+    { value: "Something else", key: "z_lt_other" }
+  ];
   var leadType = "";
 
   function openLeadForm() {
@@ -185,15 +209,15 @@
     wrap.className = "zc-msg bot";
     wrap.innerHTML =
       '<div class="zc-lead">' +
-      "<strong>Quick quote request</strong>" +
-      '<input id="zcLName" type="text" placeholder="Your name" maxlength="80" autocomplete="name">' +
-      '<input id="zcLEmail" type="email" placeholder="Email" maxlength="120" autocomplete="email">' +
+      "<strong>" + esc(t("z_lead_title")) + "</strong>" +
+      '<input id="zcLName" type="text" placeholder="' + esc(t("z_lead_name")) + '" maxlength="80" autocomplete="name">' +
+      '<input id="zcLEmail" type="email" placeholder="' + esc(t("z_lead_email")) + '" maxlength="120" autocomplete="email">' +
       '<div class="zc-lead-pills">' +
-      LEAD_TYPES.map(function (t) { return '<button type="button" data-t="' + esc(t) + '">' + esc(t) + "</button>"; }).join("") +
+      LEAD_TYPES.map(function (x) { return '<button type="button" data-t="' + esc(x.value) + '">' + esc(t(x.key)) + "</button>"; }).join("") +
       "</div>" +
-      '<textarea id="zcLMsg" placeholder="What is the pain? One or two lines is enough." maxlength="600"></textarea>' +
+      '<textarea id="zcLMsg" placeholder="' + esc(t("z_lead_msg_ph")) + '" maxlength="600"></textarea>' +
       '<div class="zc-lead-err" id="zcLErr"></div>' +
-      '<button class="zc-lead-send" id="zcLSend" type="button">Send — get my fixed quote</button>' +
+      '<button class="zc-lead-send" id="zcLSend" type="button">' + esc(t("z_lead_send")) + "</button>" +
       "</div>";
     body.appendChild(wrap);
     body.scrollTop = body.scrollHeight;
@@ -213,10 +237,10 @@
     var email = wrap.querySelector("#zcLEmail").value.trim();
     var msg = wrap.querySelector("#zcLMsg").value.trim();
     var err = wrap.querySelector("#zcLErr");
-    if (!name) { err.textContent = "Please add your name."; return; }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { err.textContent = "That email does not look right."; return; }
-    if (!leadType) { err.textContent = "Pick what you need above."; return; }
-    if (!msg) { err.textContent = "One line about the pain helps us quote accurately."; return; }
+    if (!name) { err.textContent = t("z_lead_err_name"); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { err.textContent = t("z_lead_err_email"); return; }
+    if (!leadType) { err.textContent = t("z_lead_err_type"); return; }
+    if (!msg) { err.textContent = t("z_lead_err_msg"); return; }
     err.textContent = "";
 
     var payload = { name: name, email: email, type: leadType, msg: msg };
@@ -233,7 +257,7 @@
         }
       }
       if (fM) fM.value = "[Via website AI consultant]\nProject type: " + leadType + "\n\n" + msg;
-      botSay("Done — your details are filled in the <strong>form below</strong>. Hit <strong>Send</strong> and a founder replies personally, usually within a day.", [], 900);
+      botSay(t("z_lead_done"), [], 900);
       setTimeout(function () {
         closePanel();
         var c = document.getElementById("contact");
@@ -242,7 +266,7 @@
       }, 1400);
     } else {
       try { sessionStorage.setItem("zentix-lead", JSON.stringify(payload)); } catch (e) {}
-      botSay("Taking you to our <strong>contact form</strong> with your details ready…", [], 600);
+      botSay(t("z_lead_goto"), [], 600);
       setTimeout(function () { location.href = "index.html#contact"; }, 1100);
     }
   }
