@@ -283,3 +283,202 @@ const CC_INBOX = "shahwaiz.mehdi@outlook.com";          // CC on every inquiry
     applyTheme(document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light");
   });
 })();
+/* ============================================================
+   ZENTIX — business consultant widget (Phase 1: guided, rule-based)
+   Pain-first flow: business -> biggest pain -> team size -> notes
+   -> tailored service recommendation -> pre-filled inquiry.
+   Phase 2: set AI_BACKEND_URL to a Cloudflare Worker URL and the
+   widget will call it instead (see zentix-ai-worker.js).
+   ============================================================ */
+const AI_BACKEND_URL = null; // Phase 2, e.g. "https://zentix-ai.<you>.workers.dev/chat"
+
+(function () {
+  "use strict";
+  const launcher = document.getElementById("zcLauncher");
+  const panel = document.getElementById("zcPanel");
+  const body = document.getElementById("zcBody");
+  const quick = document.getElementById("zcQuick");
+  const inputRow = document.getElementById("zcInputRow");
+  const input = document.getElementById("zcInput");
+  const sendBtn = document.getElementById("zcSend");
+  const closeBtn = document.getElementById("zcClose");
+  if (!launcher || !panel) return;
+
+  const answers = { business: "", pain: "", team: "", notes: "" };
+  let step = 0;
+  let started = false;
+
+  const esc = (s) =>
+    String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+  function addMsg(html, who) {
+    const d = document.createElement("div");
+    d.className = "zc-msg " + who;
+    d.innerHTML = html;
+    body.appendChild(d);
+    body.scrollTop = body.scrollHeight;
+  }
+
+  function setQuick(options) {
+    quick.innerHTML = "";
+    options.forEach((o) => {
+      const b = document.createElement("button");
+      b.className = "zc-chip";
+      b.type = "button";
+      b.textContent = o;
+      b.addEventListener("click", () => onAnswer(o));
+      quick.appendChild(b);
+    });
+  }
+
+  function setFreeText(on) {
+    inputRow.hidden = !on;
+    if (on) setTimeout(() => input.focus(), 60);
+  }
+
+  const KEYWORDS = [
+    { svc: "AI Agents & Automation", why: "An AI assistant can absorb the repetitive work — replying to customers, follow-ups, data entry — so your team focuses on growth.", words: ["customer", "support", "reply", "replies", "chat", "whatsapp", "instagram", "dm ", "inbox", "message", "manual", "data entry", "excel", "spreadsheet", "sheet", "copy", "paste", "repetit", "automat", "tedious", "follow up", "follow-up", "reminder", "invoice", "report", "lead"] },
+    { svc: "Website", why: "A fast, high-converting website turns visitors into inquiries on autopilot.", words: ["website", "site", "online presence", "redesign", "slow", "outdated", "no website", "landing", "visitors", "traffic"] },
+    { svc: "Shopify / WooCommerce Store", why: "A proper online store with smooth checkout lifts sales without adding staff.", words: ["store", "shop", "sell", "product", "order", "stock", "inventory", "ecommerce", "e-commerce", "cart", "checkout", "retail"] },
+    { svc: "Mobile App", why: "Your own app keeps customers coming back instead of hunting for you.", words: ["mobile app", "android", "ios", "iphone", " app"] },
+    { svc: "Web App", why: "A custom dashboard or portal removes the spreadsheet chaos and scales with you.", words: ["dashboard", "portal", "platform", "software", "system", "booking", "manag", "crm", "internal", "saas"] },
+  ];
+
+  const BIZ_BOOST = [
+    { svc: "Shopify / WooCommerce Store", words: ["e-commerce", "ecommerce", "retail", "shop", "store"] },
+    { svc: "Website", words: ["service", "services", "local business", "agency", "restaurant", "clinic"] },
+    { svc: "Web App", words: ["startup", "saas"] },
+  ];
+
+  function scoreServices() {
+    const text = (answers.business + " " + answers.pain + " " + answers.notes).toLowerCase();
+    const scores = KEYWORDS.map((k) => {
+      let s = 0;
+      k.words.forEach((w) => { if (text.includes(w)) s += 1; });
+      return { svc: k.svc, why: k.why, score: s };
+    });
+    const biz = answers.business.toLowerCase();
+    BIZ_BOOST.forEach((b) => {
+      if (b.words.some((w) => biz.includes(w))) {
+        const hit = scores.find((s) => s.svc === b.svc);
+        if (hit) hit.score += 2;
+      }
+    });
+    scores.sort((a, b) => b.score - a.score);
+    const picked = scores.filter((s) => s.score > 0).slice(0, 2);
+    if (picked.length === 0) {
+      return [
+        { svc: "Website", why: KEYWORDS[1].why },
+        { svc: "AI Agents & Automation", why: KEYWORDS[0].why },
+      ];
+    }
+    return picked;
+  }
+
+  function greet() {
+    addMsg(
+      "Hi! I&rsquo;m the Zentix consultant. In 4 quick questions I&rsquo;ll map out which services would give your business the biggest lift.<br><br><strong>First &mdash; what does your business do?</strong>",
+      "bot"
+    );
+    setQuick(["E-commerce / retail", "Services", "Local business", "Startup / SaaS"]);
+    setFreeText(true);
+  }
+
+  function onAnswer(text) {
+    text = String(text).trim();
+    if (!text) return;
+    addMsg(esc(text), "user");
+    input.value = "";
+    if (step === 0) {
+      answers.business = text;
+      step = 1;
+      addMsg("<strong>What&rsquo;s eating most of your time or money right now?</strong>", "bot");
+      setQuick(["Replying to customers", "Manual / repetitive work", "No good website", "Getting new customers", "Managing orders"]);
+      setFreeText(true);
+    } else if (step === 1) {
+      answers.pain = text;
+      step = 2;
+      addMsg("<strong>How big is your team?</strong>", "bot");
+      setQuick(["Just me", "2\u201310", "11\u201350", "50+"]);
+      setFreeText(false);
+    } else if (step === 2) {
+      answers.team = text;
+      step = 3;
+      addMsg("<strong>Anything else I should know?</strong> (optional)", "bot");
+      setQuick(["Skip"]);
+      setFreeText(true);
+    } else if (step === 3) {
+      answers.notes = text.toLowerCase() === "skip" ? "" : text;
+      step = 4;
+      recommend();
+    }
+  }
+
+  function recommend() {
+    const picked = scoreServices();
+    const items = picked.map((p) => "<li><strong>" + esc(p.svc) + "</strong> &mdash; " + esc(p.why) + "</li>").join("");
+    addMsg(
+      "Based on what you told me, here&rsquo;s your highest-ROI starting point:<ul>" + items + "</ul>Want me to send this to our team as an inquiry? We reply personally to every serious message.",
+      "bot"
+    );
+    setQuick(["Yes, send it as an inquiry", "Start over"]);
+    setFreeText(false);
+    // the chips already carry onAnswer via setQuick (harmless no-op at step 4);
+    // these extra handlers do the real work:
+    const chips = quick.querySelectorAll(".zc-chip");
+    chips[0].addEventListener("click", sendAsInquiry, { once: true });
+    chips[1].addEventListener("click", reset, { once: true });
+  }
+
+  function sendAsInquiry() {
+    const picked = scoreServices();
+    const msg = document.getElementById("fMsg");
+    const type = document.getElementById("fType");
+    if (msg) {
+      msg.value =
+        "[Via website consultant]\n" +
+        "Business: " + answers.business + "\n" +
+        "Biggest pain: " + answers.pain + "\n" +
+        "Team size: " + answers.team +
+        (answers.notes ? "\nNotes: " + answers.notes : "") + "\n" +
+        "Recommended: " + picked.map((p) => p.svc).join(", ");
+    }
+    if (type) {
+      const want = picked[0].svc;
+      for (const o of type.options) {
+        if (o.text.replace(/\s+/g, " ").trim() === want) { type.value = o.value || o.text; type.selectedIndex = o.index; break; }
+      }
+    }
+    closePanel();
+    const contact = document.getElementById("contact");
+    if (contact) contact.scrollIntoView({ behavior: "smooth" });
+    const name = document.getElementById("fName");
+    if (name) setTimeout(() => name.focus({ preventScroll: true }), 700);
+  }
+
+  function reset() {
+    answers.business = answers.pain = answers.team = answers.notes = "";
+    step = 0;
+    body.innerHTML = "";
+    greet();
+  }
+
+  function openPanel() {
+    panel.hidden = false;
+    launcher.setAttribute("aria-expanded", "true");
+    const ping = launcher.querySelector(".zc-ping");
+    if (ping) ping.style.display = "none";
+    if (!started) { started = true; greet(); }
+  }
+
+  function closePanel() {
+    panel.hidden = true;
+    launcher.setAttribute("aria-expanded", "false");
+  }
+
+  launcher.addEventListener("click", () => (panel.hidden ? openPanel() : closePanel()));
+  closeBtn.addEventListener("click", closePanel);
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !panel.hidden) closePanel(); });
+  sendBtn.addEventListener("click", () => onAnswer(input.value));
+  input.addEventListener("keydown", (e) => { if (e.key === "Enter") onAnswer(input.value); });
+})();
