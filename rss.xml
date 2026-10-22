@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Zentix Blog</title>
+    <link>https://mycodescene.github.io/zentix/blog.html</link>
+    <description>Practical, honest guides on websites, mobile apps, AI automation and e-commerce.</description>
+    <language>en</language>
+    <lastBuildDate>Fri, 23 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>How AI chatbots cut support costs for small businesses</title>
+      <link>https://mycodescene.github.io/zentix/posts/ai-chatbots-support-costs.html</link>
+      <guid>https://mycodescene.github.io/zentix/posts/ai-chatbots-support-costs.html</guid>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate>
+      <description>AI chatbots now answer most routine customer questions instantly. Here's what they cost, what they do well, and when a human still matters.</description>
+      <category>AI Automation</category>
+    </item>
+    <item>
+      <title>Shopify vs custom e-commerce: which is right for your store?</title>
+      <link>https://mycodescene.github.io/zentix/posts/shopify-vs-custom-ecommerce.html</link>
+      <guid>https://mycodescene.github.io/zentix/posts/shopify-vs-custom-ecommerce.html</guid>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate>
+      <description>Shopify is fast to launch but not always the answer. An honest comparison of Shopify vs custom-built stores on cost, control, and scale.</description>
+      <category>E-commerce</category>
+    </item>
+    <item>
+      <title>Why your website isn't bringing customers (and how to fix it)</title>
+      <link>https://mycodescene.github.io/zentix/posts/website-not-bringing-customers.html</link>
+      <guid>https://mycodescene.github.io/zentix/posts/website-not-bringing-customers.html</guid>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate>
+      <description>Most business websites fail for the same five fixable reasons: slow speed, unclear offer, no trust signals, weak mobile experience, and no clear next step.</description>
+      <category>Websites</category>
+    </item>
+    <item>
+      <title>What a mobile app really costs in 2026</title>
+      <link>https://mycodescene.github.io/zentix/posts/mobile-app-cost-2026.html</link>
+      <guid>https://mycodescene.github.io/zentix/posts/mobile-app-cost-2026.html</guid>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0000</pubDate>
+      <description>Mobile app quotes range from suspiciously cheap to absurdly expensive. Here's what actually drives the cost and how to avoid paying for the wrong thing.</description>
+      <category>Mobile Apps</category>
+    </item>
+  </channel>
+</rss>
