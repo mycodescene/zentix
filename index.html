@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zentix — Remote Digital Agency | Websites, Apps, AI Automation</title>
+  <meta name="description" content="Zentix is a remote digital agency based in Pakistan, serving clients worldwide. We build websites, web apps, mobile apps, AI automation and Shopify stores.">
+  <link rel="canonical" href="https://mycodescene.github.io/zentix/">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#070B14">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Zentix">
+  <meta property="og:title" content="Zentix — Remote Digital Agency | Websites, Apps, AI Automation">
+  <meta property="og:description" content="Pakistan-based remote agency, clients worldwide. Websites, web apps, mobile apps, AI automation and Shopify stores, built to a premium standard.">
+  <meta property="og:url" content="https://mycodescene.github.io/zentix/">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Zentix — Remote Digital Agency | Websites, Apps, AI Automation">
+  <meta name="twitter:description" content="Pakistan-based remote agency, clients worldwide. Websites, web apps, mobile apps, AI automation and Shopify stores.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Zentix",
+    "url": "https://mycodescene.github.io/zentix/",
+    "slogan": "Remote digital agency — Pakistan-based, clients worldwide.",
+    "description": "Zentix is a remote digital agency based in Pakistan, serving clients worldwide. We build websites, web apps, mobile apps, AI automation and Shopify stores."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Zentix",
+    "url": "https://mycodescene.github.io/zentix/"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Zentix Services",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "item": {"@type": "Service", "name": "Website Development", "description": "Fast, SEO-ready marketing websites and landing pages."}},
+      {"@type": "ListItem", "position": 2, "item": {"@type": "Service", "name": "Web App Development", "description": "Custom dashboards, portals and SaaS-style web applications."}},
+      {"@type": "ListItem", "position": 3, "item": {"@type": "Service", "name": "Mobile App Development", "description": "Cross-platform mobile apps from idea to store release."}},
+      {"@type": "ListItem", "position": 4, "item": {"@type": "Service", "name": "AI Agents & Automation", "description": "Chatbots, AI assistants and workflow automation."}},
+      {"@type": "ListItem", "position": 5, "item": {"@type": "Service", "name": "Shopify & WooCommerce Stores", "description": "High-converting online stores and custom integrations."}}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "How does working remotely with Zentix work?", "acceptedAnswer": {"@type": "Answer", "text": "We work async-first with clear milestones and regular updates. You always know what is being built, what is next, and when it ships. We overlap working hours with clients across time zones for calls when needed."}},
+      {"@type": "Question", "name": "What does your project process look like?", "acceptedAnswer": {"@type": "Answer", "text": "Four stages: Discover, where we map your goals and scope; Design and Build, where we craft and develop; Review, where you test and we refine; Launch and Support, where we ship and stay available afterwards."}},
+      {"@type": "Question", "name": "How much does a project cost?", "acceptedAnswer": {"@type": "Answer", "text": "Every project is scoped individually. After a short discovery call you receive a fixed written quote, so the price is agreed before any work begins. No hourly surprises."}},
+      {"@type": "Question", "name": "What are your payment terms?", "acceptedAnswer": {"@type": "Answer", "text": "50% upfront to start the project and 50% on delivery. Final files and handover are released once the final payment is complete."}},
+      {"@type": "Question", "name": "How long does a typical project take?", "acceptedAnswer": {"@type": "Answer", "text": "Landing pages typically take one to two weeks. Full websites and online stores usually take three to six weeks depending on scope. You get a realistic timeline in your quote."}},
+      {"@type": "Question", "name": "Do you provide support after launch?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every launch includes a handover, and ongoing support and maintenance options are available so your site or app keeps running smoothly."}}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="#home" class="logo" aria-label="Zentix home">Zentix<span class="logo-dot" aria-hidden="true"></span></a>
+      <nav class="main-nav" id="mainNav" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#process">Process</a>
+        <a href="#team">Team</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="header-actions">
+        <a href="#contact" class="btn btn-primary btn-sm">Start a project</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="home" aria-label="Introduction">
+      <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+      <div class="hero-orbs" aria-hidden="true">
+        <span class="orb orb-1"></span>
+        <span class="orb orb-2"></span>
+        <span class="orb orb-3"></span>
+      </div>
+      <div class="container hero-inner">
+        <p class="eyebrow reveal">Remote digital agency &mdash; Pakistan based, clients worldwide</p>
+        <h1 class="hero-title">
+          <span class="line reveal">We build websites, apps</span>
+          <span class="line reveal">&amp; <span class="grad-text">AI systems</span></span>
+          <span class="line reveal">that grow your business.</span>
+        </h1>
+        <p class="hero-sub reveal">Zentix is a two-founder remote studio. Premium design, clean engineering, honest pricing, and delivery you can track at every step.</p>
+        <div class="hero-ctas reveal">
+          <a href="#contact" class="btn btn-primary btn-lg">Start your project</a>
+          <a href="#work" class="btn btn-ghost btn-lg">See selected work</a>
+        </div>
+        <div class="hero-meta reveal">
+          <span>Building for clients since 2020</span>
+          <span class="sep" aria-hidden="true">·</span>
+          <span>100% remote</span>
+        </div>
+      </div>
+      <a href="#services" class="scroll-hint" aria-label="Scroll to services"><span></span></a>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats" aria-label="Agency facts">
+      <div class="container stats-grid">
+        <div class="stat reveal">
+          <p class="stat-value stat-text">Since 2020</p>
+          <p class="stat-label">Building for clients</p>
+        </div>
+        <div class="stat reveal">
+          <p class="stat-value"><span class="counter" data-count="2">0</span></p>
+          <p class="stat-label">Co-founders, zero bloat</p>
+        </div>
+        <div class="stat reveal">
+          <p class="stat-value"><span class="counter" data-count="5">0</span></p>
+          <p class="stat-label">Service lines</p>
+        </div>
+        <div class="stat reveal">
+          <p class="stat-value"><span class="counter" data-count="100" data-suffix="%">0</span></p>
+          <p class="stat-label">Remote, worldwide</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section" id="services" aria-label="Services">
+      <div class="container">
+        <p class="eyebrow reveal">What we do</p>
+        <h2 class="section-title reveal">Five crafts, one standard: <span class="grad-text">excellent.</span></h2>
+        <p class="section-sub reveal">Every engagement is scoped, quoted fixed, and delivered against milestones you can see.</p>
+        <div class="services-grid">
+          <article class="card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 21h8"/></svg>
+            </div>
+            <h3>Websites</h3>
+            <p>Fast, SEO-ready marketing websites and landing pages that turn visitors into enquiries.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+            </div>
+            <h3>Web Apps</h3>
+            <p>Custom dashboards, client portals and SaaS-style web applications, built to scale.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18.5h2"/></svg>
+            </div>
+            <h3>Mobile Apps</h3>
+            <p>Cross-platform mobile apps taken carefully from idea to store release.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 1 7 7c0 2.4-1.2 4.2-2.6 5.7-.9 1-1.4 2.1-1.4 3.3H9c0-1.2-.5-2.3-1.4-3.3C6.2 13.2 5 11.4 5 9a7 7 0 0 1 7-7z"/><path d="M9 21h6"/></svg>
+            </div>
+            <h3>AI Agents &amp; Automation</h3>
+            <p>Chatbots, AI assistants and workflow automation that remove repetitive manual work.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6L5 3H2"/><circle cx="9" cy="20" r="1.6"/><circle cx="17" cy="20" r="1.6"/></svg>
+            </div>
+            <h3>Shopify &amp; WooCommerce Stores</h3>
+            <p>High-converting online stores, theme builds and custom e-commerce integrations.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section class="section section-alt" id="work" aria-label="Selected work">
+      <div class="container">
+        <p class="eyebrow reveal">Selected work</p>
+        <h2 class="section-title reveal">Real builds, <span class="grad-text">live on the web.</span></h2>
+        <p class="section-sub reveal">A selection of client work we have designed and built. Live projects are linked, open them and click around.</p>
+
+        <div class="slider reveal" id="workSlider" aria-roledescription="carousel" aria-label="Selected work slider">
+          <div class="slider-viewport">
+            <div class="slider-track" id="sliderTrack">
+              <article class="slide" aria-roledescription="slide" aria-label="1 of 16">
+                <div class="browser-mock mock-a" role="img" aria-label="Stylized preview of the Seashore Fiberglass website">
+                  <div class="browser-bar"><span></span><span></span><span></span><em>seashorefiberglass.com</em></div>
+                  <div class="mock-body"><i class="m-hero"></i><i class="m-line w80"></i><i class="m-line w60"></i><i class="m-btn"></i></div>
+                </div>
+                <div class="slide-info">
+                  <h3>Seashore Fiberglass</h3>
+                  <p>US contractor secured through BD outreach; custom-coded business website built from scratch: lead-generation funnel, quote-request forms, AI chatbot for lead qualification, on-page SEO.</p>
+                  <a class="text-link" href="https://seashorefiberglass.com" target="_blank" rel="noopener">Visit live site <span aria-hidden="true">↗</span></a>
+                </div>
+              </article>
+              <article class="slide" aria-roledescription="slide" aria-label="2 of 16">
+                <div class="browser-mock mock-b" role="img" aria-label="Stylized preview of the OG Car World website">
+                  <div class="browser-bar"><span></span><span></span><span></span><em>ogcarworld.co.uk</em></div>
+                  <div class="mock-body"><i class="m-hero"></i><i class="m-line w70"></i><i class="m-line w50"></i><i class="m-btn"></i></div>
+                </div>
+                <div class="slide-info">
+                  <h3>OG Car World</h3>
+                  <p>UK client landed through BD outreach; WordPress business website with service pages, booking CTAs, and customer-review integration.</p>
+                  <a class="text-link" href="https://ogcarworld.co.uk" target="_blank" rel="noopener">Visit live site <span aria-hidden="true">↗</span></a>
+                </div>
+              </article>
+              <article class="slide" aria-roledescription="slide" aria-label="3 of 16">
+                <div class="browser-mock mock-c" role="img" aria-label="Stylized preview of the Glamping Hive website">
+                  <div class="browser-bar"><span></span><span></span><span></span><em>theglampinghive.com</em></div>
+                  <div class="mock-body"><i class="m-hero"></i><i class="m-line w75"></i><i class="m-line w55"></i><i class="m-btn"></i></div>
+                </div>
+                <div class="slide-info">
+                  <h3>Glamping Hive</h3>
+                  <p>Client landed through BD outreach; full WordPress redesign.</p>
+                  <a class="text-link" href="https://theglampinghive.com" target="_blank" rel="noopener">Visit live site <span aria-hidden="true">↗</span></a>
+                </div>
+              </article>
+              <article class="slide" aria-roledescription="slide" aria-label="4 of 16">
+                <div class="browser-mock mock-d" role="img" aria-label="Stylized preview of the Hookit Admin Panel website">
+                  <div class="browser-bar"><span></span><span></span><span></span><em>hookit.com</em></div>
+                  <div class="mock-body"><i class="m-hero"></i><i class="m-line w65"></i><i class="m-line w80"></i><i class="m-btn"></i></div>
+                </div>
+                <div class="slide-info">
+                  <h3>Hookit Admin Panel</h3>
+                  <p>Sports-marketing intelligence platform won through direct client outreach; admin panel + UI/UX with multi-tier dashboard flows (brand, agent, athlete accounts). Delivered as Full Stack Developer.</p>
+                  <a class="text-link" href="https://hookit.com" target="_blank" rel="noopener">Visit live site <span aria-hidden="true">↗</span></a>
+                </div>
+              </article>
+              <article class="slide" aria-roledescription="slide" aria-label="5 of 16">
+                <div class="browser-mock mock-e" role="img" aria-label="Stylized preview of the Showslot website">
+                  <div class="browser-bar"><span></span><span></span><span></span><em>Showslot</em></div>
+                  <div class="mock-body"><i class="m-hero"></i><i class="m-line w70"></i><i class="m-line w60"></i><i class="m-btn"></i></div>
+                </div>
+                <div class="slide-info">
+                  <h3>Showslot</h3>
+                  <p>Frankfurt ticketing platform; relationship secured via BD outreach. Frontend ticket-booking module: seat planning, live availability, payment gateway integration, anti-hoarding purchase limits. Delivered as Full Stack Developer.</p>
+                </div>
+              </article>
+              <article class="slide" aria-roledescription="slide" aria-label="6 of 16">
+                <div class="browser-mock mock-f" role="img" aria-label="Stylized preview of the Biomark website">
+                  <div class="browser-bar"><span></span><span></span><span></span><em>Biomark</em></div>
+                  <div class="mock-body"><i class="m-hero"></i><i class="m-line w80"></i><i class="m-line w55"></i><i class="m-btn"></i></div>
+                </div>
+                <div class="slide-info">
+                  <h3>Biomark</h3>
+                  <p>Singapore digital health platform (2,500+ clinics, 300k+ users); secured through BD outreach. Google Fit integration, 20+ reusable UI components, 25+ REST APIs. Delivered as Full Stack Developer.</p>
+                </div>
+              </article>
+              <article class="slide" aria-roledescription="slide" aria-label="7 of 16">
+                <div class="browser-mock mock-g" role="img" aria-label="Stylized preview of the vCERN website">
+                  <div class="browser-bar"><span></span><span></span><span></span><em>vCERN</em></div>
+                  <div class="mock-body"><i class="m-hero"></i><i class="m-line w60"></i><i class="m-line w75"></i><i class="m-btn"></i></div>
+                </div>
+                <div class="slide-info">
+                  <h3>vCERN</h3>
+                  <p>US community-finance platform; landed through proactive client acquisition. E-commerce and subscription backbone: Stripe payments, 5-tier role-based access, real-time chat, push notifications. Delivered as Full Stack Developer.</p>
+                </div>
+              </article>
+              <article class="slide" aria-roledescription="slide" aria-label="8 of 16">
+                <div class="browser-mock mock-h" role="img" aria-label="Stylized preview of the Those Jobs website">
+                  <div class="browser-bar"><span></span><span></span><span></span><em>Those Jobs</em></div>
+                  <div class="mock-body"><i class="m-hero"></i><i class="m-line w75"></i><i class="m-line w60"></i><i class="m-btn"></i></div>
+                </div>
+                <div class="slide-info">
+                  <h3>Those Jobs</h3>
+                  <p>Escrow payment product for a US entrepreneur; landed through BD outreach. React Native mobile app, React web and admin panel, Supabase.</p>
+                </div>
+              </article>
+              <article class="slide" aria-roledescription="slide" aria-label="9 of 16">
+                <div class="browser-mock mock-i" role="img" aria-label="Stylized preview of the Lead Distribution website">
+                  <div class="browser-bar"><span></span><span></span><span></span><em>Lead Distribution</em></div>
+                  <div class="mock-body"><i class="m-hero"></i><i class="m-line w70"></i><i class="m-line w80"></i><i class="m-btn"></i></div>
+                </div>
+                <div class="slide-info">
+                  <h3>Lead Distribution</h3>
+                  <p>Lead-distribution platform for a US entrepreneur; landed through BD outreach. Ping-post and round-robin distribution with CRM and webhooks; Next.js, NestJS, Supabase, Stripe, Twilio, Resend.</p>
+                </div>
+              </article>
+              <article class="slide" aria-roledescription="slide" aria-label="10 of 16">
+                <div class="browser-mock mock-j" role="img" aria-label="Stylized preview of the FindMoto mobile app">
+                  <div class="browser-bar"><span></span><span></span><span></span><em>FindMoto — mobile app</em></div>
+                  <div class="mock-body mock-app"><i class="m-phone"></i><i class="m-line w60"></i><i class="m-btn"></i></div>
+                </div>
+                <div class="slide-info">
+                  <h3>FindMoto</h3>
+                  <p>React Native mobile app for local clients; landed through BD outreach.</p>
+                </div>
+              </article>
+              <article class="slide" aria-roledescription="slide" aria-label="11 of 16">
+                <div class="browser-mock mock-k" role="img" aria-label="Stylized preview of the Flight-management app mobile app">
+                  <div class="browser-bar"><span></span><span></span><span></span><em>Flight app — mobile</em></div>
+                  <div class="mock-body mock-app"><i class="m-phone"></i><i class="m-line w70"></i><i class="m-btn"></i></div>
+                </div>
+                <div class="slide-info">
+                  <h3>Flight-management app</h3>
+                  <p>React Native flight-management app for local clients; landed through BD outreach.</p>
+                </div>
+              </article>
+              <article class="slide" aria-roledescription="slide" aria-label="12 of 16">
+                <div class="browser-mock mock-l" role="img" aria-label="Stylized preview of the Blunt Strategies website">
+                  <div class="browser-bar"><span></span><span></span><span></span><em>Blunt Strategies</em></div>
+                  <div class="mock-body"><i class="m-hero"></i><i class="m-line w80"></i><i class="m-line w70"></i><i class="m-btn"></i></div>
+                </div>
+                <div class="slide-info">
+                  <h3>Blunt Strategies</h3>
+                  <p>Performance-marketing agency; led frontend delivery end-to-end: responsive, high-converting landing pages.</p>
+                </div>
+              </article>
+              <article class="slide" aria-roledescription="slide" aria-label="13 of 16">
+                <div class="browser-mock mock-m" role="img" aria-label="Stylized preview of the gbltrading.ae website">
+                  <div class="browser-bar"><span></span><span></span><span></span><em>gbltrading.ae</em></div>
+                  <div class="mock-body"><i class="m-hero"></i><i class="m-line w65"></i><i class="m-line w55"></i><i class="m-btn"></i></div>
+                </div>
+                <div class="slide-info">
+                  <h3>gbltrading.ae</h3>
+                  <p>WordPress website build.</p>
+                  <a class="text-link" href="https://gbltrading.ae" target="_blank" rel="noopener">Visit live site <span aria-hidden="true">↗</span></a>
+                </div>
+              </article>
+              <article class="slide" aria-roledescription="slide" aria-label="14 of 16">
+                <div class="browser-mock mock-n" role="img" aria-label="Stylized preview of the foneworldcambridge.co.uk website">
+                  <div class="browser-bar"><span></span><span></span><span></span><em>foneworldcambridge.co.uk</em></div>
+                  <div class="mock-body"><i class="m-hero"></i><i class="m-line w75"></i><i class="m-line w65"></i><i class="m-btn"></i></div>
+                </div>
+                <div class="slide-info">
+                  <h3>foneworldcambridge.co.uk</h3>
+                  <p>WordPress website build.</p>
+                  <a class="text-link" href="https://foneworldcambridge.co.uk" target="_blank" rel="noopener">Visit live site <span aria-hidden="true">↗</span></a>
+                </div>
+              </article>
+              <article class="slide" aria-roledescription="slide" aria-label="15 of 16">
+                <div class="browser-mock mock-o" role="img" aria-label="Stylized preview of the e3sparkplugs.com website">
+                  <div class="browser-bar"><span></span><span></span><span></span><em>e3sparkplugs.com</em></div>
+                  <div class="mock-body"><i class="m-hero"></i><i class="m-line w70"></i><i class="m-line w60"></i><i class="m-btn"></i></div>
+                </div>
+                <div class="slide-info">
+                  <h3>e3sparkplugs.com</h3>
+                  <p>WordPress website build.</p>
+                  <a class="text-link" href="https://e3sparkplugs.com" target="_blank" rel="noopener">Visit live site <span aria-hidden="true">↗</span></a>
+                </div>
+              </article>
+              <article class="slide" aria-roledescription="slide" aria-label="16 of 16">
+                <div class="browser-mock mock-p" role="img" aria-label="Stylized preview of the sonax.com.au website">
+                  <div class="browser-bar"><span></span><span></span><span></span><em>sonax.com.au</em></div>
+                  <div class="mock-body"><i class="m-hero"></i><i class="m-line w80"></i><i class="m-line w75"></i><i class="m-btn"></i></div>
+                </div>
+                <div class="slide-info">
+                  <h3>sonax.com.au</h3>
+                  <p>WordPress website build.</p>
+                  <a class="text-link" href="https://sonax.com.au" target="_blank" rel="noopener">Visit live site <span aria-hidden="true">↗</span></a>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="slider-controls">
+            <button class="slider-btn" id="sliderPrev" aria-label="Previous project">←</button>
+            <div class="slider-dots" id="sliderDots" role="tablist" aria-label="Choose project"></div>
+            <button class="slider-btn" id="sliderNext" aria-label="Next project">→</button>
+          </div>
+        </div>
+        <p class="work-note reveal">More selected client work being added.</p>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section" id="process" aria-label="Our process">
+      <div class="container">
+        <p class="eyebrow reveal">How we work</p>
+        <h2 class="section-title reveal">A process you can <span class="grad-text">follow along with.</span></h2>
+        <div class="process-grid">
+          <article class="step reveal">
+            <span class="step-num" aria-hidden="true">01</span>
+            <h3>Discover</h3>
+            <p>We map your goals, audience and scope in a focused call, then confirm everything in writing.</p>
+          </article>
+          <article class="step reveal">
+            <span class="step-num" aria-hidden="true">02</span>
+            <h3>Design &amp; Build</h3>
+            <p>We design and develop against clear milestones, with progress you can review at each step.</p>
+          </article>
+          <article class="step reveal">
+            <span class="step-num" aria-hidden="true">03</span>
+            <h3>Review</h3>
+            <p>You test, we refine. Rounds of feedback are built into the plan, not billed as extras.</p>
+          </article>
+          <article class="step reveal">
+            <span class="step-num" aria-hidden="true">04</span>
+            <h3>Launch &amp; Support</h3>
+            <p>We ship, hand everything over cleanly, and stay available for support afterwards.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="section section-alt" id="team" aria-label="Team">
+      <div class="container">
+        <p class="eyebrow reveal">The team</p>
+        <h2 class="section-title reveal">Two founders, <span class="grad-text">zero bloat.</span></h2>
+        <p class="section-sub reveal">You always know exactly who is working on your project.</p>
+        <div class="team-grid">
+          <!-- TODO: founder name + photo for the BD co-founder card -->
+          <article class="card team-card reveal">
+            <div class="avatar" aria-hidden="true"><span>BD</span></div>
+            <!-- TODO: replace with founder name -->
+            <h3>Co-founder</h3>
+            <p class="role">Business Development</p>
+            <p>Finds the right clients, scopes projects honestly, and keeps every engagement aligned with your business goals.</p>
+          </article>
+          <!-- TODO: founder name + photo for the Engineering co-founder card -->
+          <article class="card team-card reveal">
+            <div class="avatar" aria-hidden="true"><span>EN</span></div>
+            <!-- TODO: replace with founder name -->
+            <h3>Co-founder</h3>
+            <p class="role">Engineering</p>
+            <p>Designs and builds the websites, apps and automations our clients rely on, with clean, maintainable code.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS (placeholder - styles ready in styles.css) -->
+    <!-- TESTIMONIALS: add here when real client quotes arrive -->
+
+    <!-- FAQ -->
+    <section class="section" id="faq" aria-label="Frequently asked questions">
+      <div class="container narrow">
+        <p class="eyebrow reveal">FAQ</p>
+        <h2 class="section-title reveal">Honest answers, <span class="grad-text">up front.</span></h2>
+        <div class="faq-list">
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false">How does working remotely with Zentix work?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-a"><p>We work async-first with clear milestones and regular updates. You always know what is being built, what is next, and when it ships. We overlap working hours with clients across time zones for calls when needed.</p></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false">What does your project process look like?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-a"><p>Four stages: Discover, where we map your goals and scope; Design and Build, where we craft and develop; Review, where you test and we refine; Launch and Support, where we ship and stay available afterwards.</p></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false">How much does a project cost?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-a"><p>Every project is scoped individually. After a short discovery call you receive a fixed written quote, so the price is agreed before any work begins. No hourly surprises.</p></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false">What are your payment terms?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-a"><p>50% upfront to start the project and 50% on delivery. Final files and handover are released once the final payment is complete.</p></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false">How long does a typical project take?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-a"><p>Landing pages typically take one to two weeks. Full websites and online stores usually take three to six weeks depending on scope. You get a realistic timeline in your quote.</p></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false">Do you provide support after launch?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-a"><p>Yes. Every launch includes a handover, and ongoing support and maintenance options are available so your site or app keeps running smoothly.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section section-alt" id="contact" aria-label="Contact">
+      <div class="container narrow">
+        <p class="eyebrow reveal">Start a project</p>
+        <h2 class="section-title reveal">Tell us what you want <span class="grad-text">built.</span></h2>
+        <p class="section-sub reveal">Share a few details and we will reply with next steps and a fixed quote. No spam, no pressure.</p>
+        <form class="contact-form reveal" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="fName">Your name</label>
+              <input type="text" id="fName" name="name" autocomplete="name" required placeholder="Jane Cooper">
+            </div>
+            <div class="form-field">
+              <label for="fEmail">Email</label>
+              <input type="email" id="fEmail" name="email" autocomplete="email" required placeholder="jane@company.com">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="fType">Project type</label>
+              <select id="fType" name="projectType" required>
+                <option value="" disabled selected>Select a project type</option>
+                <option>Website</option>
+                <option>Web App</option>
+                <option>Mobile App</option>
+                <option>AI Agents &amp; Automation</option>
+                <option>Shopify / WooCommerce Store</option>
+                <option>Something else</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="fBudget">Budget range</label>
+              <select id="fBudget" name="budget" required>
+                <option value="" disabled selected>Select a range</option>
+                <option>Under $500</option>
+                <option>$500 – $1,500</option>
+                <option>$1,500 – $5,000</option>
+                <option>$5,000+</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="fMsg">Project details</label>
+            <textarea id="fMsg" name="message" rows="5" required placeholder="What do you want to build? Any links, deadlines or must-haves?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg form-submit" id="formSubmitBtn">Send inquiry</button>
+          <p class="form-note">We reply to every serious inquiry personally.</p>
+          <div class="form-status" id="formStatus" role="status" aria-live="polite" hidden></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#home" class="logo">Zentix<span class="logo-dot" aria-hidden="true"></span></a>
+        <p>Remote digital agency. Pakistan based, clients worldwide.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#process">Process</a>
+        <a href="#team">Team</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <p class="footer-copy">© 2026 Zentix. Built remote, delivered worldwide.</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
