@@ -84,8 +84,10 @@
   ]
 }
   </script>
+  <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
+  <div class="preloader" aria-hidden="true"><span class="preloader-word">Zentix<span class="preloader-dot">.</span></span></div>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header" id="siteHeader">
@@ -119,7 +121,7 @@
       <div class="pf-hero-bg" aria-hidden="true"><img src="images/portfolio-hero.jpg" alt="" fetchpriority="high"></div>
       <div class="container pf-hero-inner">
         <p class="eyebrow reveal">Selected work</p>
-        <h1 class="reveal">Work that<br><span class="grad-text">speaks for itself.</span></h1>
+        <h1><span class="mask"><span style="--d:.05s">Work that</span></span><span class="mask"><span style="--d:.16s"><span class="grad-text">speaks for itself.</span></span></span></h1>
         <p class="pf-lead reveal">Websites, online stores, and apps we designed and built for clients across the globe. Every project below is real work, delivered by our team.</p>
         <div class="pf-stats reveal">
           <div><strong>18</strong><span>Projects delivered</span></div>
@@ -470,5 +472,7 @@
     </div>
   </div>
 
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
 </body>
 </html>
