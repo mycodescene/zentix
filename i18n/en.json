@@ -187,5 +187,21 @@
   "z_pill_small": "Free consultant",
   "z_pill": "Ask Zentix",
   "z_badge": "AI Consultant",
-  "z_cta": "Get a fixed quote"
+  "z_cta": "Get a fixed quote",
+  "z_lead_title": "Quick quote request",
+  "z_lead_name": "Your name",
+  "z_lead_email": "Email",
+  "z_lt_website": "Website",
+  "z_lt_store": "Online store",
+  "z_lt_app": "Mobile app",
+  "z_lt_ai": "AI automation",
+  "z_lt_other": "Something else",
+  "z_lead_msg_ph": "What is the pain? One or two lines is enough.",
+  "z_lead_send": "Send — get my fixed quote",
+  "z_lead_err_name": "Please add your name.",
+  "z_lead_err_email": "That email does not look right.",
+  "z_lead_err_type": "Pick what you need above.",
+  "z_lead_err_msg": "One line about the pain helps us quote accurately.",
+  "z_lead_done": "Done — your details are filled in the <strong>form below</strong>. Hit <strong>Send</strong> and a founder replies personally, usually within a day.",
+  "z_lead_goto": "Taking you to our <strong>contact form</strong> with your details ready…"
 }
