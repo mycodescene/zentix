@@ -796,3 +796,11 @@ body.has-cursor, body.has-cursor a, body.has-cursor button, body.has-cursor inpu
   .zc-launcher-text small { display: none; }
   .zc-cta { display: none; }
 }
+
+/* RTL: mirror chatbot launcher + panel to the left side */
+[dir="rtl"] .zc-launcher { right: auto; left: 1.4rem; }
+[dir="rtl"] .zc-panel { right: auto; left: 1.4rem; }
+@media (max-width: 480px) {
+  [dir="rtl"] .zc-launcher { right: auto; left: 1rem; }
+  [dir="rtl"] .zc-panel { right: auto; left: 1rem; }
+}
