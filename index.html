@@ -72,8 +72,10 @@
     ]
   }
   </script>
+  <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
+  <div class="preloader" aria-hidden="true"><span class="preloader-word">Zentix<span class="preloader-dot">.</span></span></div>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header" id="siteHeader">
@@ -112,9 +114,9 @@
       <div class="container hero-inner">
         <p class="eyebrow reveal">Remote digital agency &mdash; clients worldwide</p>
         <h1 class="hero-title">
-          <span class="line reveal">We build websites, apps</span>
-          <span class="line reveal">&amp; <span class="grad-text">AI systems</span></span>
-          <span class="line reveal">that grow your business.</span>
+          <span class="mask"><span style="--d:.05s">We build websites, apps</span></span>
+          <span class="mask"><span style="--d:.16s">&amp; <span class="grad-text">AI systems</span></span></span>
+          <span class="mask"><span style="--d:.27s">that grow your business.</span></span>
         </h1>
         <p class="hero-sub reveal">Zentix is a two-founder remote studio. Premium design, clean engineering, honest pricing, and delivery you can track at every step.</p>
         <div class="hero-ctas reveal">
@@ -601,5 +603,7 @@
       <button id="zcSend" aria-label="Send answer">&#10148;</button>
     </div>
   </div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
 </body>
 </html>
