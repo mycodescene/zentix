@@ -187,5 +187,21 @@
   "z_pill_small": "Consultor gratis",
   "z_pill": "Ask Zentix",
   "z_badge": "Consultor IA",
-  "z_cta": "Obtener un presupuesto fijo"
+  "z_cta": "Obtener un presupuesto fijo",
+  "z_lead_title": "Solicitud rápida de presupuesto",
+  "z_lead_name": "Su nombre",
+  "z_lead_email": "Correo electrónico",
+  "z_lt_website": "Sitio web",
+  "z_lt_store": "Tienda en línea",
+  "z_lt_app": "App móvil",
+  "z_lt_ai": "Automatización con IA",
+  "z_lt_other": "Otra cosa",
+  "z_lead_msg_ph": "¿Cuál es el problema? Una o dos líneas bastan.",
+  "z_lead_send": "Enviar — obtener mi presupuesto fijo",
+  "z_lead_err_name": "Por favor, añada su nombre.",
+  "z_lead_err_email": "Ese correo no parece correcto.",
+  "z_lead_err_type": "Elija lo que necesita arriba.",
+  "z_lead_err_msg": "Una línea sobre el problema nos ayuda a presupuestar con precisión.",
+  "z_lead_done": "Listo — sus datos están en el <strong>formulario de abajo</strong>. Pulse <strong>Enviar</strong> y un fundador le responderá personalmente, normalmente en un día.",
+  "z_lead_goto": "Le llevamos al <strong>formulario de contacto</strong> con sus datos listos…"
 }
