@@ -187,5 +187,21 @@
   "z_pill_small": "Kostenlose Beratung",
   "z_pill": "Ask Zentix",
   "z_badge": "KI-Berater",
-  "z_cta": "Festpreisangebot erhalten"
+  "z_cta": "Festpreisangebot erhalten",
+  "z_lead_title": "Schnelle Angebotsanfrage",
+  "z_lead_name": "Ihr Name",
+  "z_lead_email": "E-Mail",
+  "z_lt_website": "Website",
+  "z_lt_store": "Online-Shop",
+  "z_lt_app": "Mobile App",
+  "z_lt_ai": "KI-Automatisierung",
+  "z_lt_other": "Etwas anderes",
+  "z_lead_msg_ph": "Was ist das Problem? Ein oder zwei Sätze genügen.",
+  "z_lead_send": "Senden — Festpreisangebot erhalten",
+  "z_lead_err_name": "Bitte geben Sie Ihren Namen an.",
+  "z_lead_err_email": "Diese E-Mail sieht nicht korrekt aus.",
+  "z_lead_err_type": "Wählen Sie oben aus, was Sie brauchen.",
+  "z_lead_err_msg": "Ein Satz zum Problem hilft uns, präzise zu kalkulieren.",
+  "z_lead_done": "Fertig — Ihre Daten stehen im <strong>Formular unten</strong>. Klicken Sie auf <strong>Senden</strong>, und ein Gründer antwortet persönlich, meist innerhalb eines Tages.",
+  "z_lead_goto": "Wir bringen Sie zum <strong>Kontaktformular</strong>, Ihre Daten sind bereit…"
 }
