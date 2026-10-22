@@ -187,5 +187,21 @@
   "z_pill_small": "Consultant gratuit",
   "z_pill": "Ask Zentix",
   "z_badge": "Consultant IA",
-  "z_cta": "Obtenir un devis fixe"
+  "z_cta": "Obtenir un devis fixe",
+  "z_lead_title": "Demande de devis rapide",
+  "z_lead_name": "Votre nom",
+  "z_lead_email": "E-mail",
+  "z_lt_website": "Site web",
+  "z_lt_store": "Boutique en ligne",
+  "z_lt_app": "App mobile",
+  "z_lt_ai": "Automatisation IA",
+  "z_lt_other": "Autre chose",
+  "z_lead_msg_ph": "Quel est le problème ? Une ou deux lignes suffisent.",
+  "z_lead_send": "Envoyer — obtenir mon devis fixe",
+  "z_lead_err_name": "Veuillez ajouter votre nom.",
+  "z_lead_err_email": "Cet e-mail ne semble pas correct.",
+  "z_lead_err_type": "Choisissez ce dont vous avez besoin ci-dessus.",
+  "z_lead_err_msg": "Une ligne sur le problème nous aide à chiffrer précisément.",
+  "z_lead_done": "C'est fait — vos coordonnées sont dans le <strong>formulaire ci-dessous</strong>. Cliquez sur <strong>Envoyer</strong> et un fondateur vous répondra personnellement, généralement sous un jour.",
+  "z_lead_goto": "Nous vous amenons au <strong>formulaire de contact</strong> avec vos données prêtes…"
 }
