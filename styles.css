@@ -271,6 +271,8 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.12; letter-spacing
 .mock-n { background: linear-gradient(135deg, #2a1f4d, #6d3fb0); }
 .mock-o { background: linear-gradient(135deg, #3d2a12, #c47a1f); }
 .mock-p { background: linear-gradient(135deg, #123a4d, #1f9dc4); }
+.mock-q { background: linear-gradient(135deg, #0f2b4d, #3f8aC4); }
+.mock-r { background: linear-gradient(135deg, #3d2b12, #c48a1f); }
 .browser-bar {
   display: flex; align-items: center; gap: 0.45rem;
   padding: 0.7rem 1rem; background: rgba(0, 0, 0, 0.35);
