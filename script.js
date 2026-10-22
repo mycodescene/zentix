@@ -261,4 +261,25 @@ const CC_INBOX = "shahwaiz.mehdi@outlook.com";          // CC on every inquiry
       submitBtn.textContent = "Send inquiry";
     }
   });
+
+  /* ---------- theme toggle ---------- */
+  const themeToggle = document.getElementById("themeToggle");
+  const themeMeta = document.querySelector('meta[name="theme-color"]');
+  const applyTheme = (t) => {
+    if (t === "light") document.documentElement.setAttribute("data-theme", "light");
+    else document.documentElement.removeAttribute("data-theme");
+    try { localStorage.setItem("zentix-theme", t); } catch (e) {}
+    const dark = t !== "light";
+    if (themeToggle) {
+      themeToggle.setAttribute("aria-pressed", String(!dark));
+      themeToggle.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
+    }
+    if (themeMeta) themeMeta.setAttribute("content", dark ? "#070B14" : "#f5f8fc");
+  };
+  let initialTheme = "dark";
+  try { initialTheme = localStorage.getItem("zentix-theme") || "dark"; } catch (e) {}
+  applyTheme(initialTheme);
+  if (themeToggle) themeToggle.addEventListener("click", () => {
+    applyTheme(document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light");
+  });
 })();
