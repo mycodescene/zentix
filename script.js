@@ -534,3 +534,81 @@ const ZC_SYSTEM = "You are Zentix's AI business consultant (a remote digital age
     if (e.key === "Enter") { guidedMode ? gAnswer(input.value) : send(input.value); }
   });
 })();
+
+/* ============================================================
+   ZENTIX — award-motion layer (research 2026-10-23)
+   Preloader handoff, masked hero trigger, custom cursor (pointer:fine),
+   magnetic buttons. All disabled under prefers-reduced-motion.
+   ============================================================ */
+(function () {
+  "use strict";
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var finePointer = window.matchMedia("(pointer: fine)").matches;
+
+  function onReady(fn) {
+    if (document.readyState !== "loading") fn();
+    else document.addEventListener("DOMContentLoaded", fn);
+  }
+
+  onReady(function () {
+    /* hero reveal trigger */
+    requestAnimationFrame(function () {
+      setTimeout(function () { document.body.classList.add("loaded"); }, 120);
+    });
+    /* preloader: slide away on load, hard fallback at 1.4s */
+    var pl = document.querySelector(".preloader");
+    function hide() {
+      document.body.classList.add("loaded");
+      if (pl) setTimeout(function () { pl.remove(); }, 950);
+    }
+    if (document.readyState === "complete") setTimeout(hide, 500);
+    else {
+      window.addEventListener("load", function () { setTimeout(hide, 350); });
+      setTimeout(hide, 1400);
+    }
+  });
+
+  if (reduced || !finePointer) return;
+
+  onReady(function () {
+    /* ---------- custom cursor: dot + lagging ring ---------- */
+    var dot = document.querySelector(".cursor-dot");
+    var ring = document.querySelector(".cursor-ring");
+    if (dot && ring) {
+      document.body.classList.add("has-cursor");
+      var mx = -100, my = -100, rx = -100, ry = -100;
+      document.addEventListener("mousemove", function (e) {
+        mx = e.clientX; my = e.clientY;
+        dot.style.transform = "translate(" + mx + "px," + my + "px)";
+      }, { passive: true });
+      (function loop() {
+        rx += (mx - rx) * 0.16; ry += (my - ry) * 0.16;
+        ring.style.transform = "translate(" + rx + "px," + ry + "px)";
+        requestAnimationFrame(loop);
+      })();
+      document.addEventListener("mouseover", function (e) {
+        if (e.target.closest("a, button, .pf-card, input, textarea, select, .zc-chip")) ring.classList.add("grow");
+      });
+      document.addEventListener("mouseout", function (e) {
+        if (e.target.closest("a, button, .pf-card, input, textarea, select, .zc-chip")) ring.classList.remove("grow");
+      });
+      document.addEventListener("visibilitychange", function () { /* rAF auto-pauses; nothing needed */ });
+    }
+
+    /* ---------- magnetic buttons ---------- */
+    document.querySelectorAll(".btn-primary, .btn-glow").forEach(function (btn) {
+      var strength = 22;
+      btn.addEventListener("mousemove", function (e) {
+        var r = btn.getBoundingClientRect();
+        var x = e.clientX - (r.left + r.width / 2);
+        var y = e.clientY - (r.top + r.height / 2);
+        btn.style.transform = "translate(" + (x / r.width * strength) + "px," + (y / r.height * strength) + "px)";
+      });
+      btn.addEventListener("mouseleave", function () {
+        btn.style.transition = "transform .45s cubic-bezier(.16,1,.3,1)";
+        btn.style.transform = "";
+        setTimeout(function () { btn.style.transition = ""; }, 480);
+      });
+    });
+  });
+})();
