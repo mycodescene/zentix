@@ -1126,3 +1126,9 @@ html[lang="ar"] .mask, html[lang="ur"] .mask { padding: .12em 0; margin: -.12em 
   .hero-badge { animation: none; }
   .hero-title .mask > span { transform: none; }
 }
+
+/* QA fix 2026-10-24: work slides need dark cards on the navy band (light mode) */
+#work .slide {
+  background: linear-gradient(160deg, #111c44, #0c1430);
+  border-color: rgba(255, 255, 255, 0.12);
+}
