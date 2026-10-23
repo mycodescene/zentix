@@ -269,7 +269,7 @@ const CC_INBOX = "mycodingseries@gmail.com";               // CC on every inquir
   const applyTheme = (t) => {
     if (t === "dark") document.documentElement.setAttribute("data-theme", "dark");
     else document.documentElement.removeAttribute("data-theme");
-    try { localStorage.setItem("zentix-theme", t); } catch (e) {}
+    try { localStorage.setItem("zentix-theme-v3", t); } catch (e) {}
     const dark = t === "dark";
     if (themeToggle) {
       themeToggle.setAttribute("aria-pressed", String(dark));
@@ -278,7 +278,7 @@ const CC_INBOX = "mycodingseries@gmail.com";               // CC on every inquir
     if (themeMeta) themeMeta.setAttribute("content", dark ? "#070B14" : "#ffffff");
   };
   let initialTheme = "light";
-  try { initialTheme = localStorage.getItem("zentix-theme") || "light"; } catch (e) {}
+  try { initialTheme = localStorage.getItem("zentix-theme-v3") || "light"; } catch (e) {}
   applyTheme(initialTheme);
   if (themeToggle) themeToggle.addEventListener("click", () => {
     applyTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");
