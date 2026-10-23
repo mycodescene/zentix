@@ -78,8 +78,8 @@
   /* chips: "quote" = lead form, "work" = portfolio, "blog" = blog page */
   var KB = [
     {
-      words: ["price", "cost", "quote", "how much", "budget", "charge", "expensive", "cheap", "rate"],
-      html: "<strong>Honest answer:</strong> it depends on scope, and anyone quoting blind is guessing. What I <em>can</em> promise: <strong>fixed quotes agreed before we start</strong>, 50% to begin and 50% on delivery. No hourly meter running. Tell us the pain and we will scope it free, then quote it fixed.",
+      words: ["price", "cost", "quote", "how much", "budget", "charge", "expensive", "cheap", "rate", "package", "packages", "pricing"],
+      html: "<strong>Honest answer:</strong> we keep it simple — <strong>websites from $600, online stores from $1,200, mobile apps from $3,500, AI automation from $900</strong>. Those are starting points; your <strong>fixed quote</strong> comes after free scoping, with 50% to start and 50% on delivery. No hourly meter, no mid-project changes.",
       chips: ["quote", "work"]
     },
     {
