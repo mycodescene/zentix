@@ -7,8 +7,8 @@
   <meta name="description" content="Selected client work by Zentix: websites, online stores, web & mobile apps for clients across the globe.">
   <link rel="canonical" href="https://mycodescene.github.io/zentix/portfolio.html">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#070B14">
-  <script>try{if(localStorage.getItem("zentix-theme")==="light")document.documentElement.setAttribute("data-theme","light")}catch(e){}</script>
+  <meta name="theme-color" content="#ffffff">
+  <script>try{if(localStorage.getItem("zentix-theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Zentix">
   <meta property="og:title" content="Portfolio — Zentix | Selected Client Work">
@@ -28,7 +28,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=4">
+<link rel="stylesheet" href="styles.css?v=7">
   <script type="application/ld+json">
   {
   "@context": "https://schema.org",
@@ -373,21 +373,21 @@
   var toggle = document.getElementById("themeToggle");
   var meta = document.querySelector('meta[name="theme-color"]');
   function applyTheme(t) {
-    if (t === "light") document.documentElement.setAttribute("data-theme", "light");
+    if (t === "dark") document.documentElement.setAttribute("data-theme", "dark");
     else document.documentElement.removeAttribute("data-theme");
     try { localStorage.setItem("zentix-theme", t); } catch (e) {}
-    var dark = t !== "light";
+    var dark = t === "dark";
     if (toggle) {
       toggle.setAttribute("aria-pressed", String(!dark));
       toggle.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
     }
-    if (meta) meta.setAttribute("content", dark ? "#070B14" : "#f5f8fc");
+    if (meta) meta.setAttribute("content", dark ? "#070B14" : "#ffffff");
   }
-  var initial = "dark";
-  try { initial = localStorage.getItem("zentix-theme") || "dark"; } catch (e) {}
+  var initial = "light";
+  try { initial = localStorage.getItem("zentix-theme") || "light"; } catch (e) {}
   applyTheme(initial);
   if (toggle) toggle.addEventListener("click", function () {
-    applyTheme(document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light");
+    applyTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");
   });
 
   /* sticky header + mobile nav */
