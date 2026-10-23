@@ -804,3 +804,44 @@ body.has-cursor, body.has-cursor a, body.has-cursor button, body.has-cursor inpu
   [dir="rtl"] .zc-launcher { right: auto; left: 1rem; }
   [dir="rtl"] .zc-panel { right: auto; left: 1rem; }
 }
+
+/* ---------- packages / pricing ---------- */
+.pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-top: 2.5rem; }
+.price-card { display: flex; flex-direction: column; position: relative; }
+.price-card h3 { font-family: var(--font-display); font-size: 1.25rem; margin: 0 0 .4rem; }
+.price { margin: 0 0 1rem; color: var(--muted); }
+.price strong { font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: var(--ink); }
+.price-from { font-size: .85rem; margin-inline-end: .3rem; }
+.price-list { list-style: none; margin: 0 0 1.5rem; padding: 0; flex: 1; }
+.price-list li { position: relative; padding-inline-start: 1.5rem; margin-bottom: .6rem; font-size: .92rem; color: var(--muted); }
+.price-list li::before { content: "✓"; position: absolute; inset-inline-start: 0; color: var(--accent); font-weight: 700; }
+.price-card .btn { align-self: stretch; text-align: center; }
+.price-popular { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), var(--shadow-lg); }
+.pop-tag { position: absolute; top: -0.85rem; inset-inline-start: 1.25rem; background: var(--accent); color: #06251f; font-size: .72rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: .28rem .8rem; border-radius: 999px; }
+.pricing-note { text-align: center; color: var(--muted); font-size: .9rem; margin-top: 2rem; max-width: 640px; margin-inline: auto; }
+@media (max-width: 1080px) { .pricing-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .pricing-grid { grid-template-columns: 1fr; } }
+
+/* ---------- Arabic / Urdu typography ---------- */
+html[lang="ar"] body, html[lang="ur"] body {
+  font-family: "IBM Plex Sans Arabic", var(--font-body);
+  line-height: 1.9;
+}
+html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] h3,
+html[lang="ar"] .section-title, html[lang="ar"] .font-display,
+html[lang="ur"] h1, html[lang="ur"] h2, html[lang="ur"] h3,
+html[lang="ur"] .section-title, html[lang="ur"] .font-display {
+  font-family: "IBM Plex Sans Arabic", var(--font-display);
+  letter-spacing: 0;
+  line-height: 1.9;
+}
+html[lang="ar"] .eyebrow, html[lang="ur"] .eyebrow { letter-spacing: .04em; }
+/* keep masked hero lines from clipping Arabic diacritics */
+html[lang="ar"] .mask, html[lang="ur"] .mask { padding: .12em 0; margin: -.12em 0; }
+/* mobile: comfortable Arabic/Urdu reading */
+@media (max-width: 640px) {
+  html[lang="ar"] .section-title, html[lang="ur"] .section-title { font-size: 1.6rem; }
+  html[lang="ar"] .hero-title, html[lang="ur"] .hero-title { font-size: 1.9rem; line-height: 2; }
+  html[lang="ar"] body, html[lang="ur"] body { overflow-wrap: break-word; }
+  html[lang="ar"] .price strong, html[lang="ur"] .price strong { font-size: 1.7rem; }
+}
