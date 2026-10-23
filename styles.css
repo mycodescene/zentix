@@ -846,3 +846,374 @@ html[lang="ar"] .mask, html[lang="ur"] .mask { padding: .12em 0; margin: -.12em 
   html[lang="ar"] body, html[lang="ur"] body { overflow-wrap: break-word; }
   html[lang="ar"] .price strong, html[lang="ur"] .price strong { font-size: 1.7rem; }
 }
+
+/* ============================================================
+   ZENTIX v2 — editorial redesign layer (2026-10-24, Ustad)
+   Reference-driven: giant condensed display type, marquee bands,
+   alternating dark/paper sections, scroll choreography.
+   TEXT RULE: every visible string already exists on the site
+   (i18n keys) — this layer changes presentation only.
+   All JS hooks (.reveal, .counter, slider, faq, form) untouched.
+   ============================================================ */
+
+/* ---------- display type ---------- */
+.hero-title .mask > span {
+  font-family: "Anton", "Space Grotesk", system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.005em;
+  line-height: 0.96;
+  font-size: clamp(3rem, 10.5vw, 8.6rem);
+  font-weight: 400;
+  overflow-wrap: break-word;
+}
+.hero-title .grad-text {
+  background: linear-gradient(100deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hero-sub { font-size: clamp(1.05rem, 1.6vw, 1.3rem); max-width: 620px; }
+
+/* ---------- marquee bands ---------- */
+.marquee {
+  overflow: hidden; white-space: nowrap;
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  background: var(--bg-soft);
+  padding: 1.1rem 0;
+  position: relative;
+}
+.marquee-track {
+  display: inline-flex; align-items: center; gap: 2.6rem;
+  padding-right: 2.6rem;
+  animation: mq-scroll 26s linear infinite;
+  will-change: transform;
+}
+.marquee-track span {
+  font-family: "Anton", "Space Grotesk", sans-serif;
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  text-transform: uppercase; letter-spacing: 0.04em;
+  color: var(--ink);
+}
+.marquee-track i { color: var(--accent); font-style: normal; font-size: 1.4em; line-height: 1; }
+.marquee-outline .marquee-track span {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--muted-2);
+}
+@keyframes mq-scroll { to { transform: translateX(-50%); } }
+
+/* ---------- scroll choreography: fade + rise + de-blur ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(34px);
+  filter: blur(8px);
+  transition: opacity 0.85s var(--ease), transform 0.85s var(--ease), filter 0.85s var(--ease);
+}
+.reveal.visible { opacity: 1; transform: none; filter: blur(0); }
+/* directional variants (combine with .reveal) */
+.reveal.rv-l { transform: translateX(-46px); filter: blur(8px); }
+.reveal.rv-r { transform: translateX(46px); filter: blur(8px); }
+.reveal.rv-scale { transform: scale(0.94) translateY(20px); filter: blur(8px); }
+.reveal.rv-l.visible, .reveal.rv-r.visible, .reveal.rv-scale.visible { transform: none; filter: blur(0); }
+/* stagger cards inside grids: odd from left, even from right */
+#pains .services-grid .card:nth-child(odd) { transform: translateX(-40px); }
+#pains .services-grid .card:nth-child(even) { transform: translateX(40px); }
+#pains .services-grid .card.visible { transform: none; }
+#services .services-grid .card { transform: translateY(30px) scale(0.97); }
+#services .services-grid .card.visible { transform: none; }
+
+/* ---------- stats: editorial numbers ---------- */
+.stats { background: var(--bg); }
+.stats-grid { padding: 3.4rem 0; gap: 2rem; }
+.stat { position: relative; padding-left: 1.4rem; }
+.stat + .stat::before {
+  content: ""; position: absolute; left: -1rem; top: 12%;
+  height: 76%; width: 1px; background: var(--line);
+}
+.stat-value {
+  font-family: "Anton", "Space Grotesk", sans-serif;
+  font-size: clamp(2.6rem, 5.4vw, 4.4rem);
+  text-transform: uppercase; letter-spacing: 0.01em; line-height: 1;
+  background: linear-gradient(100deg, var(--ink) 30%, var(--accent));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.stat-label { margin-top: 0.55rem; font-size: 0.95rem; }
+
+/* ---------- pains: numbered editorial rows ---------- */
+#pains .services-grid { counter-reset: pain; grid-template-columns: 1fr; gap: 0; max-width: 920px; margin: 0 auto; }
+#pains .card {
+  counter-increment: pain;
+  display: grid; grid-template-columns: auto 1fr; gap: 1.6rem 2rem;
+  background: transparent; border: none; border-top: 1px solid var(--line);
+  border-radius: 0; padding: 2.2rem 0.6rem;
+  transition: background 0.5s var(--ease), padding 0.5s var(--ease);
+  position: relative;
+}
+#pains .card:last-child { border-bottom: 1px solid var(--line); }
+#pains .card::before {
+  content: "0" counter(pain);
+  font-family: "Anton", sans-serif; font-size: clamp(2.4rem, 5vw, 3.6rem);
+  color: transparent; -webkit-text-stroke: 1px var(--accent);
+  line-height: 1; align-self: start;
+  transition: color 0.4s var(--ease);
+}
+#pains .card:hover { background: var(--accent-dim); padding-left: 1.4rem; }
+#pains .card:hover::before { color: var(--accent); -webkit-text-stroke: 1px transparent; }
+#pains .card-icon { display: none; }
+#pains .card h3 {
+  font-family: "Anton", sans-serif; font-weight: 400;
+  font-size: clamp(1.5rem, 3.4vw, 2.3rem);
+  text-transform: uppercase; letter-spacing: 0.02em;
+}
+#pains .card p { color: var(--muted); max-width: 640px; }
+#pains .pain-fix { color: var(--ink) !important; font-weight: 500; }
+
+/* ---------- born digital: giant statement ---------- */
+#digital { position: relative; overflow: hidden; }
+#digital .section-title {
+  font-family: "Anton", sans-serif; font-weight: 400;
+  font-size: clamp(2.8rem, 8vw, 6.4rem);
+  text-transform: uppercase; line-height: 0.98; letter-spacing: 0.01em;
+}
+#digital .section-sub { font-size: clamp(1.05rem, 1.8vw, 1.3rem); max-width: 720px; }
+#digital .card { background: rgba(255,255,255,0.025); }
+.dig-mission {
+  font-family: "Anton", sans-serif; text-transform: uppercase;
+  font-size: clamp(1.3rem, 3vw, 2rem); letter-spacing: 0.03em;
+  color: var(--accent); margin-top: 3rem; text-align: center;
+}
+
+/* ---------- paper (light editorial) sections ---------- */
+.band-paper {
+  background: #eef2f8; color: #0d1526;
+  --ink: #0d1526; --muted: #48546e; --muted-2: #7c879e;
+  --line: rgba(13, 21, 38, 0.14);
+  --surface: #ffffff; --surface-2: #e4eaf4;
+  --accent: #0d9488; --accent-2: #4f46e5;
+  --accent-dim: rgba(13, 148, 136, 0.10);
+}
+.band-paper .eyebrow { color: #0d9488; }
+.band-paper .section-title, .band-paper h3 { color: #0d1526; }
+.band-paper .section-sub { color: #48546e; }
+.band-paper .card {
+  background: #ffffff; border: 1px solid rgba(13,21,38,0.10);
+  box-shadow: 0 18px 44px -22px rgba(13, 21, 38, 0.25);
+}
+.band-paper .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 28px 60px -22px rgba(13, 21, 38, 0.35);
+  border-color: rgba(13, 148, 136, 0.45);
+}
+.band-paper .card p { color: #48546e; }
+.band-paper .card-icon {
+  background: rgba(13, 148, 136, 0.12); color: #0d9488;
+}
+.band-paper .grad-text {
+  background: linear-gradient(100deg, #0d9488, #4f46e5);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+/* services on paper: ref-style cards with arrow nudge */
+#services .card h3 {
+  font-family: "Anton", sans-serif; font-weight: 400;
+  font-size: 1.45rem; text-transform: uppercase; letter-spacing: 0.02em;
+}
+#services .card { position: relative; overflow: hidden; }
+#services .card::after {
+  content: "→"; position: absolute; right: 1.4rem; bottom: 1.2rem;
+  font-size: 1.6rem; color: #0d9488;
+  transform: translateX(-8px); opacity: 0;
+  transition: transform 0.45s var(--ease), opacity 0.45s var(--ease);
+}
+#services .card:hover::after { transform: none; opacity: 1; }
+
+/* ---------- packages: tier cards ---------- */
+.pricing-grid { align-items: stretch; }
+.price-card { display: flex; flex-direction: column; transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease), border-color 0.5s var(--ease); }
+.price-card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: var(--shadow-lg); }
+.price-card h3 {
+  font-family: "Anton", sans-serif; font-weight: 400;
+  font-size: 1.6rem; text-transform: uppercase; letter-spacing: 0.03em;
+}
+.price-card .price strong {
+  font-family: "Anton", sans-serif; font-weight: 400;
+  font-size: clamp(2.2rem, 4vw, 3rem); letter-spacing: 0.01em;
+}
+.price-popular {
+  border: 1px solid transparent;
+  background: linear-gradient(var(--surface), var(--surface)) padding-box,
+    linear-gradient(120deg, var(--accent), var(--accent-2)) border-box;
+  transform: scale(1.03);
+}
+.price-popular:hover { transform: scale(1.03) translateY(-10px); }
+.pop-tag {
+  font-family: "Space Grotesk", sans-serif; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.72rem;
+}
+
+/* ---------- work: bigger stage + outline word ---------- */
+#work { position: relative; overflow: hidden; }
+#work .section-title {
+  font-family: "Anton", sans-serif; font-weight: 400;
+  font-size: clamp(2.8rem, 8vw, 6.2rem);
+  text-transform: uppercase; line-height: 0.98;
+}
+.slide { min-width: 100%; }
+.browser-mock { border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-lg); }
+.slide-info h3 {
+  font-family: "Anton", sans-serif; font-weight: 400;
+  font-size: clamp(1.4rem, 2.6vw, 2rem); text-transform: uppercase; letter-spacing: 0.02em;
+}
+.slider-btn {
+  width: 52px; height: 52px; border-radius: 50%;
+  border: 1px solid var(--line); background: var(--surface);
+  transition: background 0.35s var(--ease), transform 0.35s var(--ease), border-color 0.35s;
+}
+.slider-btn:hover { background: var(--accent-dim); border-color: var(--accent); transform: scale(1.08); }
+
+/* ---------- process: giant numerals ---------- */
+.process-grid { gap: 0; max-width: 1000px; margin: 0 auto; }
+.step {
+  display: grid; grid-template-columns: auto 1fr; gap: 0.4rem 2.2rem;
+  padding: 2.4rem 0.6rem; border-top: 1px solid var(--line);
+  transition: background 0.5s var(--ease), padding 0.5s var(--ease);
+}
+.step:last-child { border-bottom: 1px solid var(--line); }
+.step:hover { background: var(--accent-dim); padding-left: 1.4rem; }
+.step-num {
+  font-family: "Anton", sans-serif; font-size: clamp(3rem, 7vw, 5rem);
+  line-height: 0.9; color: transparent; -webkit-text-stroke: 1.5px var(--accent);
+  transition: color 0.4s var(--ease);
+}
+.step:hover .step-num { color: var(--accent); -webkit-text-stroke: 1.5px transparent; }
+.step h3 {
+  font-family: "Anton", sans-serif; font-weight: 400;
+  font-size: clamp(1.5rem, 3.2vw, 2.2rem); text-transform: uppercase; letter-spacing: 0.02em;
+  align-self: end;
+}
+.step p { color: var(--muted); max-width: 600px; grid-column: 2; }
+
+/* ---------- team ---------- */
+.team-card { text-align: left; transition: transform 0.5s var(--ease), border-color 0.5s var(--ease); }
+.team-card:hover { transform: translateY(-8px); border-color: var(--accent); }
+.team-card .avatar {
+  width: 76px; height: 76px; border-radius: 22px;
+  background: linear-gradient(120deg, var(--accent-dim), rgba(129,140,248,0.16));
+  border: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: center;
+}
+.team-card .avatar span {
+  font-family: "Anton", sans-serif; font-size: 1.7rem; color: var(--accent); letter-spacing: 0.04em;
+}
+.team-card h3 {
+  font-family: "Anton", sans-serif; font-weight: 400;
+  font-size: 1.5rem; text-transform: uppercase; letter-spacing: 0.03em; margin-top: 1.1rem;
+}
+
+/* ---------- faq on paper ---------- */
+.band-paper .faq-item { background: #ffffff; border: 1px solid rgba(13,21,38,0.10); }
+.band-paper .faq-q { color: #0d1526; font-size: 1.12rem; font-weight: 600; }
+.band-paper .faq-a p { color: #48546e; }
+.band-paper .faq-item.open { border-color: rgba(13, 148, 136, 0.5); }
+#faq .section-title {
+  font-family: "Anton", sans-serif; font-weight: 400;
+  font-size: clamp(2.6rem, 7vw, 5.4rem); text-transform: uppercase; line-height: 0.98;
+}
+
+/* ---------- contact: split stage ---------- */
+#contact { position: relative; overflow: hidden; }
+#contact::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(640px 420px at 12% 18%, rgba(94,234,212,0.10), transparent 65%),
+    radial-gradient(720px 480px at 88% 82%, rgba(129,140,248,0.12), transparent 65%);
+}
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1.15fr; gap: 4rem;
+  align-items: start; position: relative;
+}
+.contact-intro { position: sticky; top: 110px; }
+.contact-intro .section-title {
+  font-family: "Anton", sans-serif; font-weight: 400;
+  font-size: clamp(2.8rem, 6.4vw, 5.2rem);
+  text-transform: uppercase; line-height: 0.96; letter-spacing: 0.01em;
+}
+.contact-intro .section-sub { margin-bottom: 0; }
+.contact-form {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 24px; padding: 2.4rem;
+  box-shadow: var(--shadow-lg);
+}
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 2.4rem; }
+  .contact-intro { position: static; }
+}
+
+/* ---------- section titles: display treatment ---------- */
+#pains .section-title, #services .section-title, #pricing .section-title, #team .section-title {
+  font-family: "Anton", sans-serif; font-weight: 400;
+  font-size: clamp(2.4rem, 6.4vw, 4.8rem);
+  text-transform: uppercase; line-height: 0.98; letter-spacing: 0.015em;
+}
+#services .section-title { color: #0d1526; }
+.band-paper .section-title .grad-text {
+  background: linear-gradient(100deg, #0d9488, #4f46e5);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+/* ---------- footer polish ---------- */
+.site-footer .logo { font-family: "Anton", sans-serif; font-weight: 400; letter-spacing: 0.04em; }
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+  .reveal, .reveal.rv-l, .reveal.rv-r, .reveal.rv-scale,
+  #pains .services-grid .card, #services .services-grid .card {
+    opacity: 1; transform: none; filter: none; transition: none;
+  }
+  .hero-title .mask > span { transform: none; }
+}
+
+/* ---------- contact form: premium treatment ---------- */
+.contact-form .form-field label {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.8rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 0.55rem; display: block;
+}
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 0.95rem 1.15rem;
+  color: var(--ink);
+  font-family: var(--font-body); font-size: 1rem;
+  transition: border-color 0.35s var(--ease), box-shadow 0.35s var(--ease), transform 0.35s var(--ease);
+}
+.contact-form textarea { resize: vertical; min-height: 130px; }
+.contact-form select {
+  appearance: none; -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2397a3bd' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 1.1rem center;
+  padding-right: 2.8rem; cursor: pointer;
+}
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-dim), 0 12px 32px -14px rgba(94, 234, 212, 0.45);
+  transform: translateY(-1px);
+}
+.contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--muted-2); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.form-field { margin-bottom: 1.25rem; }
+.form-submit {
+  width: 100%; margin-top: 0.4rem;
+  font-size: 1.08rem; padding: 1.05rem;
+  border-radius: 14px;
+}
+.form-note { text-align: center; color: var(--muted); font-size: 0.92rem; margin-top: 1rem; }
+.form-status { margin-top: 1.1rem; border-radius: 14px; padding: 1rem 1.2rem; }
+.form-status.success { background: var(--accent-dim); border: 1px solid var(--accent); }
+.form-status.error { background: rgba(248, 113, 113, 0.10); border: 1px solid rgba(248, 113, 113, 0.5); }
+@media (max-width: 640px) { .form-row { grid-template-columns: 1fr; } }
