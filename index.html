@@ -28,11 +28,11 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=4">
+<link rel="stylesheet" href="styles.css?v=5">
 
   <script type="application/ld+json">
   {
@@ -142,6 +142,14 @@
       <a href="#services" class="scroll-hint" data-i18n-aria="scroll_services" aria-label="Scroll to services"><span></span></a>
     </section>
 
+    <!-- MARQUEE: site vocabulary only -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Websites</span><i>&bull;</i><span>Web Apps</span><i>&bull;</i><span>Mobile Apps</span><i>&bull;</i><span>AI Automation</span><i>&bull;</i><span>Online Store</span><i>&bull;</i><span>Zentix</span><i>&bull;</i>
+        <span>Websites</span><i>&bull;</i><span>Web Apps</span><i>&bull;</i><span>Mobile Apps</span><i>&bull;</i><span>AI Automation</span><i>&bull;</i><span>Online Store</span><i>&bull;</i><span>Zentix</span><i>&bull;</i>
+      </div>
+    </div>
+
     <!-- STATS -->
     <section class="stats" aria-label="Company facts">
       <div class="container stats-grid">
@@ -234,7 +242,7 @@
     </section>
 
     <!-- SERVICES -->
-    <section class="section" id="services" aria-label="Services">
+    <section class="section band-paper" id="services" aria-label="Services">
       <div class="container">
         <p class="eyebrow reveal" data-i18n="svc_eyebrow">What we do</p>
         <h2 class="section-title reveal"><span data-i18n="svc_t1">Five crafts, one standard:</span> <span class="grad-text" data-i18n="svc_t2">excellent.</span></h2>
@@ -335,6 +343,14 @@
         <p class="pricing-note reveal" data-i18n="pkg_note">Prices are typical starting points in USD. Your fixed quote comes after free scoping — and never changes mid-project.</p>
       </div>
     </section>
+
+    <!-- MARQUEE: site vocabulary only -->
+    <div class="marquee marquee-outline" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Selected Work</span><i>&bull;</i><span>Real Builds</span><i>&bull;</i><span>Live On The Web</span><i>&bull;</i>
+        <span>Selected Work</span><i>&bull;</i><span>Real Builds</span><i>&bull;</i><span>Live On The Web</span><i>&bull;</i>
+      </div>
+    </div>
 
     <!-- WORK -->
     <section class="section section-alt" id="work" aria-label="Selected work">
@@ -614,7 +630,7 @@
     <!-- TESTIMONIALS: add here when real client quotes arrive -->
 
     <!-- FAQ -->
-    <section class="section" id="faq" aria-label="Frequently asked questions">
+    <section class="section band-paper" id="faq" aria-label="Frequently asked questions">
       <div class="container narrow">
         <p class="eyebrow reveal" data-i18n="faq_eyebrow">FAQ</p>
         <h2 class="section-title reveal"><span data-i18n="faq_t1">Honest answers,</span> <span class="grad-text" data-i18n="faq_t2">up front.</span></h2>
@@ -647,13 +663,23 @@
       </div>
     </section>
 
+    <!-- MARQUEE: site vocabulary only -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Start A Project</span><i>&bull;</i><span>Fixed Quote</span><i>&bull;</i><span>No Surprises</span><i>&bull;</i><span>Zentix</span><i>&bull;</i>
+        <span>Start A Project</span><i>&bull;</i><span>Fixed Quote</span><i>&bull;</i><span>No Surprises</span><i>&bull;</i><span>Zentix</span><i>&bull;</i>
+      </div>
+    </div>
+
     <!-- CONTACT -->
-    <section class="section section-alt" id="contact" aria-label="Contact">
-      <div class="container narrow">
-        <p class="eyebrow reveal" data-i18n="c_eyebrow">Start a project</p>
-        <h2 class="section-title reveal"><span data-i18n="c_t1">Tell us what you want</span> <span class="grad-text" data-i18n="c_t2">built.</span></h2>
-        <p class="section-sub reveal" data-i18n="c_sub">Share a few details and we will reply with next steps and a fixed quote. No spam, no pressure.</p>
-        <form class="contact-form reveal" id="contactForm" novalidate>
+    <section class="section" id="contact" aria-label="Contact">
+      <div class="container contact-grid">
+        <div class="contact-intro">
+          <p class="eyebrow reveal" data-i18n="c_eyebrow">Start a project</p>
+          <h2 class="section-title reveal"><span data-i18n="c_t1">Tell us what you want</span> <span class="grad-text" data-i18n="c_t2">built.</span></h2>
+          <p class="section-sub reveal" data-i18n="c_sub">Share a few details and we will reply with next steps and a fixed quote. No spam, no pressure.</p>
+        </div>
+        <form class="contact-form reveal rv-r" id="contactForm" novalidate>
           <div class="form-row">
             <div class="form-field">
               <label for="fName" data-i18n="c_name_l">Your name</label>
