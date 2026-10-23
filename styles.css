@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap');
 /* ============ ZENTIX — custom agency theme ============ */
 :root {
   --ease: cubic-bezier(.16,1,.3,1); /* signature easing, winners use one curve everywhere */
