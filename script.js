@@ -9,8 +9,8 @@
    CC_INBOX      : carbon-copy inbox. Every inquiry is CC'd here
                    via FormSubmit's hidden _cc field.
    ============================================================ */
-const PRIMARY_INBOX = "mycodingseries@gmail.com";      // TODO (founders): click the FormSubmit activation email once
-const CC_INBOX = "shahwaiz.mehdi@outlook.com";          // CC on every inquiry
+const PRIMARY_INBOX = "shahwaiz.mehdi@outlook.com";       // founder inbox: receives every inquiry + FormSubmit activation
+const CC_INBOX = "mycodingseries@gmail.com";               // CC on every inquiry
 
 (function () {
   "use strict";
