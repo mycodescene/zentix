@@ -1,15 +1,17 @@
-/* Zentix i18n — 6 languages, RTL-aware. Deferred; runs on every page. */
+/* Zentix i18n — 4 languages live (ar/ur parked 2026-10-23, files kept for later). Deferred; runs on every page. */
 (function () {
   'use strict';
 
   var LANGS = {
     en: { name: 'English', dir: 'ltr' },
-    ar: { name: 'العربية', dir: 'rtl' },
-    ur: { name: 'اردو', dir: 'rtl' },
     es: { name: 'Español', dir: 'ltr' },
     fr: { name: 'Français', dir: 'ltr' },
     de: { name: 'Deutsch', dir: 'ltr' }
   };
+  /* PARKED (Mehmanon 2026-10-23 — re-enable when RTL mobile is polished):
+    ar: { name: 'العربية', dir: 'rtl' },
+    ur: { name: 'اردو', dir: 'rtl' },
+  */
   var KEY = 'zentix-lang';
   var inPosts = location.pathname.indexOf('/posts/') !== -1;
   var base = inPosts ? '../' : '';
